@@ -239,8 +239,8 @@ layers:
   - {t: /, s: '?'}
   - {t: '''', s: '"'}
   - {type: held}
-  - '&LT 6 TAB'
-  - '&LT 5 SPACE'
+  - {t: '$$mdi:keyboard-tab$$', h: PCHOLD}
+  - {t: '$$mdi:keyboard-space$$', h: GRAFITE}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -288,8 +288,8 @@ layers:
   - {t: /, s: '?'}
   - {t: '''', s: '"'}
   - {type: held}
-  - {t: '&LT 6 TAB', type: held}
-  - '&LT 5 SPACE'
+  - {t: '$$mdi:keyboard-tab$$', h: PCHOLD, type: held}
+  - {t: '$$mdi:keyboard-space$$', h: GRAFITE, type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
