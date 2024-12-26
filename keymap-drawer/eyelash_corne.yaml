@@ -199,7 +199,7 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - Y
   - U
-  - I
+  - '&skp I'
   - O
   - P
   - $$mdi:arrow-up-bold$$
@@ -239,8 +239,8 @@ layers:
   - {t: /, s: '?'}
   - {t: '''', s: '"'}
   - {type: held}
-  - {t: '$$mdi:keyboard-tab$$', h: PCHOLD}
-  - {t: '$$mdi:keyboard-space$$', h: GRAFITE}
+  - {t: '$$mdi:keyboard-tab$$', h: GRAFITE}
+  - {t: '$$mdi:keyboard-space$$', h: PCHOLD}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -288,8 +288,8 @@ layers:
   - {t: /, s: '?'}
   - {t: '''', s: '"'}
   - {type: held}
-  - {t: '$$mdi:keyboard-tab$$', h: PCHOLD, type: held}
-  - {t: '$$mdi:keyboard-space$$', h: GRAFITE, type: held alternate}
+  - {type: held}
+  - {t: '$$mdi:keyboard-space$$', h: PCHOLD}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
