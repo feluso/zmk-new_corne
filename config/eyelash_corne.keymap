@@ -75,9 +75,9 @@
         layer_2 {                             
             display-name = "GRAFITAUX";
             bindings = <
-&trans &mt F1 1 &mt F2 2  &mt F3 3      &mt F4 4       &trans                                 &trans                                 &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&trans &mt F5 5 &mt F6 6  &mt F7 7      &mt F8 8       &trans                       &trans    &trans    &trans                       &kp ENTER  &kp LBKT  &kp RBKT  &kp BSPC   &trans  &trans
-&trans &mt F9 9 &mt F10 0 &mt F11 MINUS &mt F12 EQUAL  &kp DOWN &trans                        &trans                                 &kp UP     &kp BSLH  &trans    &trans     &trans  &trans
+&trans &mt F1 N1 &mt F2 N2  &mt F3 N3      &mt F4 N4       &trans                                 &trans                                 &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&trans &mt F5 N5 &mt F6 N6  &mt F7 N7      &mt F8 N8       &trans                       &trans    &trans    &trans                       &kp ENTER  &kp LBKT  &kp RBKT  &kp BSPC   &trans  &trans
+&trans &mt F9 N9 &mt F10 N0 &mt F11 MINUS &mt F12 EQUAL  &kp DOWN &trans                        &trans                                 &kp UP     &kp BSLH  &trans    &trans     &trans  &trans
                              &trans  &trans  &trans                                             &trans  &trans  &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
