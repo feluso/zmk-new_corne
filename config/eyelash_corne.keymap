@@ -32,6 +32,7 @@
         };
         mt {
             compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms: <125>;
             quick-tap-ms = <125>;
