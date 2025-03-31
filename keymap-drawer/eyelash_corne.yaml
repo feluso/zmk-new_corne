@@ -308,7 +308,7 @@ layers:
   - O
   - P
   - $$mdi:keyboard-esc$$
-  - '&td0'
+  - $$mdi:apple-keyboard-shift$$
   - H
   - J
   - K
