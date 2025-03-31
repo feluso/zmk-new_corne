@@ -31,6 +31,7 @@
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
         mt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
             flavor = "tap-preferred";
             tapping-term-ms: <125>;
             quick-tap-ms = <125>;
