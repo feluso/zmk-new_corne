@@ -30,7 +30,7 @@
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
-        mt: mod_tap {
+        mt {
             compatible = "zmk,behavior-hold-tap";
             flavor = "tap-preferred";
             tapping-term-ms: <125>;
