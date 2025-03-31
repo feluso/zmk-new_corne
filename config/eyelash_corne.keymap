@@ -35,7 +35,7 @@
             flavor = "tap-preferred";
             tapping-term-ms: <125>;
             quick-tap-ms = <125>;
-        }
+        };
     };
 
     rgb_encoder: rgb_encoder {
