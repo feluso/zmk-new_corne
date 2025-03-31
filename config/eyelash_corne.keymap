@@ -24,12 +24,6 @@
 
 / {
     behaviors {
-        td0: td0 {
-            compatible = "zmk,behavior-tap-dance";
-            display-name = "Shift/Caps Lock Tap Dance";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
-        };
         mt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
