@@ -97,7 +97,7 @@ layers:
   - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX, type: held}
   - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX}
   - {t: '$$mdi:keyboard-return$$', h: NUMBER}
-  - {t: ':', h: RHAND}
+  - {t: ;, h: RHAND, s: ':'}
   GRAFITAUX:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '1', h: F1, s: '!'}
