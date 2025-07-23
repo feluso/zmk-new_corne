@@ -50,6 +50,7 @@
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
         bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        tap-ms = <30>;
     };
 
     keymap {
@@ -69,9 +70,9 @@
         layer_1 {                             
             display-name = "GRAFITE";
             bindings = <
-&kp ESC       &kp B        &kp L       &kp D         &kp W       &kp Z                            &kp BSPC                   &kp SQT    &kp F       &kp O         &kp U         &kp J        &kp ESC
-&kp V         &mt LCTRL N  &mt LALT R  &mt LSHIFT T  &mt LGUI S  &kp G                  &kp TAB  &kp ENTER  &kp DEL     &kp Y      &mt RGUI H  &mt RSHIFT A  &mt RALT E  &mt RCTRL I  &kp K
-&kp GRAVE     &kp Q        &kp X       &kp M         &kp C       &kp LEFT  &kp SPACE              &kp ENTER                 &kp RIGHT  &kp P       &kp DOT       &kp MINUS     &kp FSLH     &kp COMMA
+&kp ESC       &kp B        &kp L       &kp D         &kp W       &kp Z                            &trans                   &kp SQT    &kp F       &kp O         &kp U         &kp J        &kp ESC
+&kp V         &mt LCTRL N  &mt LALT R  &mt LSHIFT T  &mt LGUI S  &kp G                  &trans  &trans  &trans     &kp Y      &mt RGUI H  &mt RSHIFT A  &mt RALT E  &mt RCTRL I  &kp K
+&kp GRAVE     &kp Q        &kp X       &kp M         &kp C       &kp LEFT  &kp SPACE              &trans                &kp RIGHT  &kp P       &kp DOT       &kp MINUS     &kp FSLH     &kp COMMA
                                               &lt 6 TAB   &lt 3 DEL  &lt 2 SPACE                                        &lt 2 SPACE  &lt 3 BSPC  &lt 6 SEMICOLON
             >;
             sensor-bindings = <&scroll_encoder>;
