@@ -7,7 +7,7 @@ layers:
   - E
   - R
   - T
-  - $$mdi:keyboard-tab$$
+  - {t: '$$mdi:backspace$$', type: backspace}
   - Y
   - U
   - I
@@ -20,7 +20,7 @@ layers:
   - D
   - F
   - G
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:keyboard-tab$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:backspace-reverse-outline$$
   - H
@@ -56,7 +56,7 @@ layers:
   - D
   - W
   - Z
-  - $$mdi:keyboard-tab$$
+  - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '''', s: '"'}
   - F
   - O
@@ -69,7 +69,7 @@ layers:
   - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: S, h: LGUI}
   - G
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:keyboard-tab$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:backspace-reverse-outline$$
   - Y
@@ -96,7 +96,7 @@ layers:
   - {t: '$$mdi:backspace-reverse-outline$$', h: NUMBER}
   - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX, type: held}
   - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX}
-  - {t: '$$mdi:keyboard-return$$', h: NUMBER}
+  - {t: '$$mdi:backspace$$', h: NUMBER}
   - {t: ;, h: RHAND, s: ':'}
   GRAFITAUX:
   - {t: '$$mdi:transfer$$', type: trans}
