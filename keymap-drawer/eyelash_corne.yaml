@@ -56,7 +56,7 @@ layers:
   - D
   - W
   - Z
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '''', s: '"'}
   - F
   - O
@@ -69,9 +69,9 @@ layers:
   - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: S, h: LGUI}
   - G
-  - $$mdi:keyboard-tab$$
-  - {t: '$$mdi:keyboard-return$$', type: enter}
-  - $$mdi:backspace-reverse-outline$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - Y
   - {t: H, h: RGUI}
   - {t: A, h: '$$mdi:apple-keyboard-shift$$'}
@@ -85,7 +85,7 @@ layers:
   - C
   - $$mdi:arrow-left-bold$$
   - $$mdi:keyboard-space$$
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:arrow-right-bold$$
   - P
   - {t: ., s: '>'}
