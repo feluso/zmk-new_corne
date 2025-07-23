@@ -32,7 +32,7 @@
     behaviors {
         mt: mod_tap {
             compatible = "zmk,behavior-hold-tap";
-            flavor = "tap-preferred";
+            flavor = "balanced";
             tapping-term-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
