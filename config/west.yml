@@ -9,10 +9,14 @@ manifest:
   projects:
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
-      revision: main
+      # Pinned: upstream main dropped the eyelash_corne_* boards in Jun 2026
+      # (commit 20ca19a3) in favour of shields on nice_nano_v2.
+      # This commit is the last state that matches build.yaml below.
+      revision: 6bbe04d43307756b1a54d7576229a226d70201c1
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Pinned: main has moved on a year past the last successful build.
+      revision: v0.3.0
       import: app/west.yml
   self:
     path: config
