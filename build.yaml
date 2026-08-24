@@ -1,17 +1,19 @@
 ---
+# ZMK main uses Zephyr's hardware model v2: the board is `nice_nano//zmk`
+# (revision 2.0.0 by default), not `nice_nano_v2`.
+# The eyelash_corne board definition now lives in this repo as a shield,
+# under boards/shields/eyelash_corne/ — no external module required.
 include:
-  - board: eyelash_corne_left
-    shield: nice_view
+  - board: nice_nano//zmk
+    shield: eyelash_corne_left nice_view
     #snippet: zmk-usb-logging    # Uncomment to log over USB.
-  - board: eyelash_corne_right
-    shield: nice_view
+  - board: nice_nano//zmk
+    shield: eyelash_corne_right nice_view
     #snippet: zmk-usb-logging
-  - board: eyelash_corne_left
-    shield: nice_view
+  - board: nice_nano//zmk
+    shield: eyelash_corne_left nice_view
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: eyelash_corne_studio_left
-  - board: eyelash_corne_left
+  - board: nice_nano//zmk
     shield: settings_reset
-    #snippet: zmk-usb-logging
- 
