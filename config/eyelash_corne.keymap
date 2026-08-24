@@ -1,9 +1,25 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
+/*
+ * Eyelash Corne — one-handed (left half) keymap
+ *
+ * Design notes:
+ *  - The left half alone is the keyboard: 18 main keys + 1 extra + 3 thumbs = 22.
+ *  - MIRR is a TRUE mirror of the right half (each row reversed), so every key
+ *    keeps its finger and row. E<->I are both middle finger, T<->Y both index.
+ *  - Mods are sticky (&sk): tap, release, then tap the key. No chording needed
+ *    with one hand. Thumb Ctrl is a real hold for the common Ctrl+key case.
+ *  - NAV is a conditional layer: hold NUM + SYM (thumb + index) together.
+ *  - &mirror: hold = momentary mirror, tap = lock it on (tap again to release).
+ *    Layer locking is a ZMK main feature; it means one hand never has to hold
+ *    a layer key down while typing.
+ */
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 25
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
@@ -11,14 +27,20 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+#define BASE 0
+#define MIRR 1
+#define NUM  2
+#define SYM  3
+#define NAV  4
+#define SYS  5
 
+&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
-    acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
-    delay-ms = <0>;                   // 0
+    acceleration-exponent = <1>;
+    time-to-max-speed-ms = <100>;
+    delay-ms = <0>;
 };
 
 &mmv {
@@ -27,14 +49,44 @@
     trigger-period-ms = <16>;
 };
 
-
 / {
     behaviors {
-        mt: mod_tap {
+        // Thumb mod-tap: balanced, so Ctrl wins as soon as another key is
+        // pressed and released. tap-preferred would swallow the mod.
+        tmod: thumb_mod_tap {
             compatible = "zmk,behavior-hold-tap";
-            flavor = "tap-preferred";
-            tapping-term-ms = <125>;
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
+        };
+
+        // Layer-tap, balanced for the same reason.
+        ltb: layer_tap_balanced {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // Hold = momentary mirror. Tap = lock the mirror on / off.
+        mirror: mirror_hold_lock {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        nav_layer {
+            if-layers = <NUM SYM>;
+            then-layer = <NAV>;
         };
     };
 
@@ -54,82 +106,70 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "GAMING";
+        base_layer {
+            display-name = "BASE";
             bindings = <
-&kp BSPC     &kp Q  &kp W      &kp E     &kp R  &kp T                              &kp BSPC                &kp Y        &kp U  &kp I      &kp O    &kp P     &kp ESC
-&kp DEL       &kp A  &kp S      &kp D     &kp F  &kp G                    &kp TAB  &kp ENTER  &kp DEL  &kp H        &kp J  &kp K      &kp L    &kp RCTRL &kp BSPC
-&kp ENTER        &kp Z  &kp X      &kp C     &kp V  &kp B       &kp TAB              &kp ENTER                &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp SQT
-                         &lt 3 ESC  &lt 2 TAB &lt 6 SPACE                                              &mt LGUI SPACE  &mt LCTRL BSPC &mt RALT ENTER
+&kp BSPC       &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
+&sk LSHFT      &kp A  &kp S  &kp D  &kp F  &kp G                &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp ENTER      &kp Z  &kp X  &kp C  &kp V  &kp B   &ltb SYM TAB              &kp ENTER                    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
+                       &ltb NUM ESC  &mirror MIRR MIRR  &tmod LCTRL SPACE                          &kp SPACE  &kp BSPC  &kp ENTER
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_1 {
-            display-name = "GRAFITE";
+        mirror_layer {
+            display-name = "MIRROR";
             bindings = <
-&kp ESC       &kp B        &kp L       &kp D         &kp W       &kp Z                            &trans                   &kp SQT    &kp F       &kp O         &kp U         &kp J        &kp ESC
-&kp V         &mt LCTRL N  &mt LALT R  &mt LSHIFT T  &mt LGUI S  &kp G                  &trans  &trans  &trans     &kp Y      &mt RGUI H  &mt RSHIFT A  &mt RALT E  &mt RCTRL I  &kp K
-&kp GRAVE     &kp Q        &kp X       &kp M         &kp C       &kp LEFT  &kp SPACE              &trans                &kp RIGHT  &kp P       &kp DOT       &kp MINUS     &kp FSLH     &kp COMMA
-                                              &lt 6 TAB   &lt 3 DEL  &lt 2 SPACE                                        &lt 2 SPACE  &lt 3 BSPC  &lt 6 SEMICOLON
+&trans     &kp P     &kp O    &kp I      &kp U  &kp Y                             &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp SEMI  &kp L    &kp K      &kp J  &kp H              &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp FSLH  &kp DOT  &kp COMMA  &kp M  &kp N     &trans            &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+                               &trans  &trans  &trans                                            &trans  &trans  &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_2 {
-            display-name = "GRAFITAUX";
+        num_layer {
+            display-name = "NUM";
             bindings = <
-&trans &mt F1 N1 &mt F2 N2  &mt F3 N3      &mt F4 N4       &trans                                 &trans                                 &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&trans &mt F5 N5 &mt F6 N6  &mt F7 N7      &mt F8 N8       &trans                       &trans    &trans    &trans                       &kp ENTER  &kp LBKT  &kp RBKT  &kp BSPC   &trans  &trans
-&trans &mt F9 N9 &mt F10 N0 &mt F11 MINUS &mt F12 EQUAL  &kp DOWN &trans                        &trans                                 &kp UP     &kp BSLH  &trans    &trans     &trans  &trans
-                             &trans  &trans  &trans                                             &trans  &trans  &trans
+&kp DEL    &kp N1     &kp N2     &kp N3      &kp N4       &kp N5                          &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT    &caps_word     &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp N6     &kp N7     &kp N8      &kp N9       &kp N0    &trans              &trans               &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans  &trans  &trans                                                 &trans  &trans  &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        layer_3 {
-            display-name = "NUMBER";
+        sym_layer {
+            display-name = "SYM";
             bindings = <
-&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                        &mmv MOVE_UP                         &kp N6           &kp N7           &kp N8           &kp N9           &kp N0     &kp BSPC
-&trans  &trans           &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                            &mmv MOVE_LEFT  &mkp LCLK &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME   &kp PG_UP
-&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF &kp C_MUTE                    &mmv MOVE_DOWN                       &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END    &kp PG_DN
-                                         &lt 6 ESC        &lt 3 TAB        &trans                                                                         &kp INS          &kp DEL          &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_4 {
-            display-name = "SYMBOL";
-            bindings = <
-&trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                           &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans  &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5  &trans                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                    &lt 5 ESC     &trans     &lt 3 SPACE                                                            &kp RET    &trans     &trans
+&trans     &kp GRAVE  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT                        &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp SEMI   &kp SQT    &kp COMMA  &kp DOT   &kp FSLH       &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp BSLH   &kp LPAR   &kp RPAR   &kp LBRC  &kp RBRC  &trans              &trans               &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans  &trans  &trans                                                 &trans  &trans  &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_5 {
-            display-name = "Fn";
+        nav_layer {
+            display-name = "NAV";
             bindings = <
-&studio_unlock   &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                                  &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans  &trans      &mkp LCLK   &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans  &sys_reset  &trans      &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                &lt 6 ESC      &trans      &trans                                                                   &trans       &trans     &trans
+&kp PG_UP  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp PSCRN                 &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp PG_DN  &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &kp DEL   &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp INS    &mkp LCLK       &mkp MCLK       &mkp RCLK     &kp HOME         &kp END   &trans          &trans              &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans  &tog SYS  &trans                                              &trans  &trans  &trans
             >;
-            sensor-bindings = <&scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        layer_6 {
-            display-name = "RHAND";
+        sys_layer {
+            display-name = "SYS";
             bindings = <
-&kp LCTRL     &kp Y  &kp U      &kp I     &kp O   &kp P                              &kp UP                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp ESC
-&kp LSHIFT          &kp H  &kp J      &kp K     &kp L   &kp SEMI                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp RSHIFT
-&kp LSHIFT    &kp N  &kp M      &kp COMMA &kp DOT &kp FSLH       &kp SPACE              &kp DOWN              &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp SQT
-                             &trans  &lt 5 TAB  &lt 6 SPACE                                             &trans  &trans  &trans
+&bootloader      &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2   &bt BT_SEL 3     &bt BT_SEL 4                    &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&sys_reset       &bt BT_CLR       &out OUT_USB     &out OUT_BLE   &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&studio_unlock   &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &bl BL_TOG     &soft_off        &none      &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+                                  &trans  &tog SYS  &trans                                              &trans  &trans  &trans
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+            sensor-bindings = <&rgb_encoder>;
         };
-
     };
 };
