@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: eyelash_corne}
 layers:
   GAMING:
-  - $$mdi:apple-keyboard-control$$
+  - {t: '$$mdi:backspace$$', type: backspace}
   - Q
   - W
   - E
@@ -29,7 +29,7 @@ layers:
   - L
   - $$mdi:apple-keyboard-control$$
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: GRAFITE, h: toggle}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   - Z
   - X
   - C
@@ -43,9 +43,9 @@ layers:
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - {t: '''', s: '"'}
-  - {t: '$$mdi:keyboard-esc$$', h: Fn}
-  - {t: '$$mdi:keyboard-tab$$', h: SYMBOL}
-  - {t: '$$mdi:keyboard-space$$', h: GRAFITE}
+  - {t: '$$mdi:keyboard-esc$$', h: NUMBER}
+  - {t: '$$mdi:keyboard-tab$$', h: GRAFITAUX}
+  - {t: '$$mdi:keyboard-space$$', h: RHAND}
   - {t: '$$mdi:keyboard-space$$', h: LGUI}
   - {t: '$$mdi:backspace$$', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-option$$'}
@@ -94,7 +94,7 @@ layers:
   - {t: ',', s: <}
   - {t: '$$mdi:keyboard-tab$$', h: RHAND}
   - {t: '$$mdi:backspace-reverse-outline$$', h: NUMBER}
-  - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX, type: held}
+  - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX}
   - {t: '$$mdi:keyboard-space$$', h: GRAFITAUX}
   - {t: '$$mdi:backspace$$', h: NUMBER}
   - {t: ;, h: RHAND, s: ':'}
@@ -142,8 +142,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
+  - {type: held alternate}
   - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -190,9 +190,9 @@ layers:
   - RGB BRD
   - END
   - PG DN
-  - {t: '$$mdi:keyboard-esc$$', h: RHAND}
-  - {t: '$$mdi:keyboard-tab$$', h: NUMBER, type: held}
-  - {type: held}
+  - {t: '$$mdi:keyboard-esc$$', h: RHAND, type: held}
+  - {t: '$$mdi:keyboard-tab$$', h: NUMBER, type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   - INS
   - {t: '$$mdi:backspace-reverse-outline$$', type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -240,7 +240,7 @@ layers:
   - '|'
   - '~'
   - {t: '$$mdi:keyboard-esc$$', h: Fn}
-  - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:keyboard-space$$', h: NUMBER}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -289,7 +289,7 @@ layers:
   - SCROLLLOCK
   - PAUSE BREAK
   - {t: '$$mdi:keyboard-esc$$', h: RHAND, type: held}
-  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -337,7 +337,7 @@ layers:
   - {t: ., s: '>'}
   - {t: /, s: '?'}
   - {t: '''', s: '"'}
-  - {type: held}
+  - {type: held alternate}
   - {t: '$$mdi:keyboard-tab$$', h: Fn, type: held alternate}
   - {t: '$$mdi:keyboard-space$$', h: RHAND, type: held}
   - {t: '$$mdi:transfer$$', type: trans}
