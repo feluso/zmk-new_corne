@@ -71,14 +71,19 @@
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
         };
+    };
 
-        // Hold = momentary mirror. Tap = lock the mirror on / off.
-        mirror: mirror_hold_lock {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
+    combos {
+        compatible = "zmk,combos";
+
+        // Both left thumbs together = lock the mirror on (again = release).
+        // Deliberately a two-key press: a single thumb can no longer latch
+        // the layer by accident, which is what the old tap-to-toggle did.
+        mirror_lock {
+            bindings = <&tog MIRR>;
+            key-positions = <42 43>;
+            layers = <BASE MIRR>;
+            timeout-ms = <50>;
         };
     };
 
@@ -112,7 +117,7 @@
 &kp BSPC       &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
 &sk LSHFT      &kp A  &kp S  &kp D  &kp F  &kp G                &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &kp ENTER      &kp Z  &kp X  &kp C  &kp V  &kp B   &ltb SYM TAB              &kp ENTER                    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                       &ltb NUM ESC  &mirror MIRR MIRR  &tmod LCTRL SPACE                          &kp SPACE  &kp BSPC  &kp ENTER
+                       &ltb NUM ESC  &mo MIRR            &tmod LCTRL SPACE                          &kp SPACE  &kp BSPC  &kp ENTER
             >;
             sensor-bindings = <&scroll_encoder>;
         };
