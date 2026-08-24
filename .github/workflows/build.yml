@@ -7,4 +7,8 @@ on:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    # Pinned to match the ZMK revision in config/west.yml. The @main workflow
+    # carries a "Check if building a board without explicit ZMK compat" step
+    # that assumes the Zephyr 4.1 board-variant scheme and fails against a
+    # v0.3.0 tree.
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3.0
