@@ -54,18 +54,18 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {                             
+        default_layer {
             display-name = "GAMING";
             bindings = <
-&kp LCTRL     &kp Q  &kp W      &kp E     &kp R  &kp T                              &kp BSPC                &kp Y        &kp U  &kp I      &kp O    &kp P     &kp ESC
-&kp DEL       &kp A  &kp S      &kp D     &kp F  &kp G                    &kp TAB  &kp ENTER  &kp DEL  &kp H        &kp J  &kp K      &kp L    &kp RCTRL &kp BSPC  
-&tog 1        &kp Z  &kp X      &kp C     &kp V  &kp B       &kp TAB              &kp ENTER                &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp SQT
-                         &lt 5 ESC  &lt 4 TAB &lt 1 SPACE                                              &mt LGUI SPACE  &mt LCTRL BSPC &mt RALT ENTER
+&kp BSPC     &kp Q  &kp W      &kp E     &kp R  &kp T                              &kp BSPC                &kp Y        &kp U  &kp I      &kp O    &kp P     &kp ESC
+&kp DEL       &kp A  &kp S      &kp D     &kp F  &kp G                    &kp TAB  &kp ENTER  &kp DEL  &kp H        &kp J  &kp K      &kp L    &kp RCTRL &kp BSPC
+&kp ENTER        &kp Z  &kp X      &kp C     &kp V  &kp B       &kp TAB              &kp ENTER                &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp SQT
+                         &lt 3 ESC  &lt 2 TAB &lt 6 SPACE                                              &mt LGUI SPACE  &mt LCTRL BSPC &mt RALT ENTER
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_1 {                             
+        layer_1 {
             display-name = "GRAFITE";
             bindings = <
 &kp ESC       &kp B        &kp L       &kp D         &kp W       &kp Z                            &trans                   &kp SQT    &kp F       &kp O         &kp U         &kp J        &kp ESC
@@ -76,7 +76,7 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_2 {                             
+        layer_2 {
             display-name = "GRAFITAUX";
             bindings = <
 &trans &mt F1 N1 &mt F2 N2  &mt F3 N3      &mt F4 N4       &trans                                 &trans                                 &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
@@ -120,7 +120,7 @@
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_6 {                             
+        layer_6 {
             display-name = "RHAND";
             bindings = <
 &kp LCTRL     &kp Y  &kp U      &kp I     &kp O   &kp P                              &kp UP                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp ESC
