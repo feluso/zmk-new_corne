@@ -114,9 +114,9 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-&kp BSPC       &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
-&sk LSHFT      &kp A  &kp S  &kp D  &kp F  &kp G                &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp ENTER      &kp Z  &kp X  &kp C  &kp V  &kp B   &ltb SYM TAB              &kp ENTER                    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
+&kp Q  &kp W  &kp E  &kp R  &kp T  &kp BSPC                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
+&kp A  &kp S  &kp D  &kp F  &kp G  &sk LSHFT                  &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp Z  &kp X  &kp C  &kp V  &kp B  &kp ENTER    &ltb SYM TAB              &kp ENTER                    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
                        &ltb NUM ESC  &mo MIRR            &tmod LCTRL SPACE                          &kp SPACE  &kp BSPC  &kp ENTER
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -125,9 +125,9 @@
         mirror_layer {
             display-name = "MIRROR";
             bindings = <
-&trans     &kp P     &kp O    &kp I      &kp U  &kp Y                             &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp SEMI  &kp L    &kp K      &kp J  &kp H              &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp FSLH  &kp DOT  &kp COMMA  &kp M  &kp N     &trans            &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&kp P     &kp O    &kp I      &kp U  &kp Y  &trans                             &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp SEMI  &kp L    &kp K      &kp J  &kp H  &trans              &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
+&kp FSLH  &kp DOT  &kp COMMA  &kp M  &kp N  &trans     &trans            &trans                    &trans  &trans  &trans  &trans  &trans  &trans
                                &trans  &trans  &trans                                            &trans  &trans  &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -136,9 +136,9 @@
         num_layer {
             display-name = "NUM";
             bindings = <
-&kp DEL    &kp N1     &kp N2     &kp N3      &kp N4       &kp N5                          &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT    &caps_word     &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp N6     &kp N7     &kp N8      &kp N9       &kp N0    &trans              &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&kp N1     &kp N2     &kp N3      &kp N4       &kp N5   &kp DEL                          &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&sk LGUI   &sk LALT   &sk LCTRL   &sk LSHFT    &caps_word  &trans     &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp N6     &kp N7     &kp N8      &kp N9       &kp N0   &trans    &trans              &trans               &trans  &trans  &trans  &trans  &trans  &trans
                                   &trans  &trans  &trans                                                 &trans  &trans  &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -147,9 +147,9 @@
         sym_layer {
             display-name = "SYM";
             bindings = <
-&trans     &kp GRAVE  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT                        &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp SEMI   &kp SQT    &kp COMMA  &kp DOT   &kp FSLH       &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans     &kp BSLH   &kp LPAR   &kp RPAR   &kp LBRC  &kp RBRC  &trans              &trans               &trans  &trans  &trans  &trans  &trans  &trans
+&kp GRAVE  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &trans                        &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp SEMI   &kp SQT    &kp COMMA  &kp DOT   &kp FSLH  &trans       &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp BSLH   &kp LPAR   &kp RPAR   &kp LBRC  &kp RBRC  &trans  &trans              &trans               &trans  &trans  &trans  &trans  &trans  &trans
                                   &trans  &trans  &trans                                                 &trans  &trans  &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -158,9 +158,9 @@
         nav_layer {
             display-name = "NAV";
             bindings = <
-&kp PG_UP  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp PSCRN                 &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&kp PG_DN  &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &kp DEL   &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&kp INS    &mkp LCLK       &mkp MCLK       &mkp RCLK     &kp HOME         &kp END   &trans          &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp PSCRN  &kp PG_UP                 &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &kp DEL  &kp PG_DN   &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&mkp LCLK       &mkp MCLK       &mkp RCLK     &kp HOME         &kp END  &kp INS   &trans          &trans              &trans  &trans  &trans  &trans  &trans  &trans
                                   &trans  &tog SYS  &trans                                              &trans  &trans  &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -169,9 +169,9 @@
         sys_layer {
             display-name = "SYS";
             bindings = <
-&bootloader      &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2   &bt BT_SEL 3     &bt BT_SEL 4                    &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&sys_reset       &bt BT_CLR       &out OUT_USB     &out OUT_BLE   &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&studio_unlock   &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &bl BL_TOG     &soft_off        &none      &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2   &bt BT_SEL 3     &bt BT_SEL 4  &bootloader                    &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR       &out OUT_USB     &out OUT_BLE   &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &sys_reset  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &bl BL_TOG     &soft_off        &none  &studio_unlock      &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans
                                   &trans  &tog SYS  &trans                                              &trans  &trans  &trans
             >;
             sensor-bindings = <&rgb_encoder>;
