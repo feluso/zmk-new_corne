@@ -115,7 +115,7 @@
             display-name = "BASE";
             bindings = <
 &kp BSPC       &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
-&sk LSHFT      &kp A  &kp S  &kp D  &kp F  &kp G                &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp SPACE      &kp A  &kp S  &kp D  &kp F  &kp G                &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &kp ENTER      &kp Z  &kp X  &kp C  &kp V  &kp B   &ltb SYM TAB              &kp ENTER                    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
                        &ltb NUM ESC  &mo MIRR            &tmod LCTRL SPACE                          &kp SPACE  &kp BSPC  &kp ENTER
             >;
