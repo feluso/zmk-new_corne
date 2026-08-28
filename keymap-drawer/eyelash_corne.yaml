@@ -14,7 +14,7 @@ layers:
   - O
   - P
   - $$mdi:keyboard-esc$$
-  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
+  - $$mdi:keyboard-space$$
   - A
   - S
   - D
