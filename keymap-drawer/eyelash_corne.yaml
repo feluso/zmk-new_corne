@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: eyelash_corne}
 layers:
   BASE:
-  - {t: '$$mdi:backspace$$', type: backspace}
+  - $$mdi:backspace-reverse-outline$$
   - Q
   - W
   - E
@@ -45,7 +45,7 @@ layers:
   - {t: \, s: '|'}
   - {t: '$$mdi:keyboard-esc$$', h: NUM}
   - MIRROR
-  - {t: '$$mdi:keyboard-space$$', h: '$$mdi:apple-keyboard-control$$'}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -63,7 +63,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: ']', s: '}'}
+  - {t: '$$mdi:backspace$$', type: backspace}
   - {t: ;, s: ':'}
   - L
   - K
