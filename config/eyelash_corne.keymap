@@ -114,10 +114,10 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-&kp BSPC       &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
+&kp DEL        &kp Q  &kp W  &kp E  &kp R  &kp T                                  &kp BSPC                &kp Y  &kp U  &kp I      &kp O    &kp P     &kp ESC
 &kp SPACE      &kp A  &kp S  &kp D  &kp F  &kp G                &kp TAB  &kp ENTER  &kp DEL               &kp H  &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &kp ENTER      &kp Z  &kp X  &kp C  &kp V  &kp B   &ltb SYM TAB              &kp ENTER                    &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                       &ltb NUM ESC  &mo MIRR            &tmod LCTRL SPACE                          &kp SPACE  &kp BSPC  &kp ENTER
+                       &ltb NUM ESC  &mo MIRR            &sk LSHFT                                  &kp SPACE  &kp BSPC  &kp ENTER
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -126,7 +126,7 @@
             display-name = "MIRROR";
             bindings = <
 &kp LBKT   &kp P     &kp O    &kp I      &kp U  &kp Y                             &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&kp RBKT   &kp SEMI  &kp L    &kp K      &kp J  &kp H              &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
+&kp BSPC   &kp SEMI  &kp L    &kp K      &kp J  &kp H              &trans  &trans  &trans             &trans  &trans  &trans  &trans  &trans  &trans
 &kp BSLH   &kp FSLH  &kp DOT  &kp COMMA  &kp M  &kp N     &trans            &trans                    &trans  &trans  &trans  &trans  &trans  &trans
                                &trans  &trans  &trans                                            &trans  &trans  &trans
             >;
