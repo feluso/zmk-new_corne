@@ -6,7 +6,7 @@ layers:
   - W
   - E
   - R
-  - T
+  - {t: ;, s: ':'}
   - {t: '$$mdi:backspace$$', type: backspace}
   - Y
   - U
@@ -34,7 +34,7 @@ layers:
   - X
   - C
   - V
-  - B
+  - {t: ., s: '>'}
   - {t: '$$mdi:keyboard-tab$$', h: SYM}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - N
@@ -55,7 +55,7 @@ layers:
   - O
   - I
   - U
-  - Y
+  - {t: /, s: '?'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -64,7 +64,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:backspace$$', type: backspace}
-  - {t: ;, s: ':'}
+  - T
   - L
   - K
   - J
@@ -79,11 +79,11 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: \, s: '|'}
-  - {t: /, s: '?'}
-  - {t: ., s: '>'}
-  - {t: ',', s: <}
-  - M
+  - Y
+  - B
   - N
+  - M
+  - {t: ',', s: <}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
